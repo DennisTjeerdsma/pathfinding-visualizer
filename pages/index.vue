@@ -1,34 +1,20 @@
 <template>
-  <div class="container">
-    <div>
-      <Logo />
-      <h1 class="title">
-        pathfinding
-      </h1>
-      <div class="links">
-        <a
-          href="https://nuxtjs.org/"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="button--green"
-        >
-          Documentation
-        </a>
-        <a
-          href="https://github.com/nuxt/nuxt.js"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="button--grey"
-        >
-          GitHub
-        </a>
-      </div>
-    </div>
+  <div name="app" class="bg-grey-300 antialiased">
+    <!-- Navigation bar item at the top of the page -->
+    <navbar class="navbar h-20 bg-midnightgreen-600">
+      <p>Placeholder navbar</p>
+    </navbar>
+    <!-- Space for small tutorial and settings -->
+    <div class="h-52 w-full bg-red-200" />
+
+    <!-- Grid for pathfinding problem --->
+    <grid v-bind:row="15" v-bind:column="50" />
   </div>
 </template>
 
 <script lang="ts">
-import Vue from 'vue'
+import { Vue, Component } from 'nuxt-property-decorator'
+import Grid from '@/components/Grid.vue'
 
 export default Vue.extend({})
 </script>
@@ -42,10 +28,25 @@ export default Vue.extend({})
 .container {
   margin: 0 auto;
   min-height: 100vh;
+  width: 100vw;
   display: flex;
   justify-content: center;
   align-items: center;
   text-align: center;
+}
+
+.navbar {
+  min-height: 12px;
+  display: flex;
+  justify-content: between;
+  align-items: center;
+  text-align: center;
+  font-weight: bold;
+  font-size: 48px;
+  letter-spacing: 1px;
+  color: white;
+  font-family: 'Quicksand', 'Source Sans Pro', -apple-system, BlinkMacSystemFont,
+    'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
 }
 
 .title {
