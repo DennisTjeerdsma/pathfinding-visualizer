@@ -20,10 +20,10 @@ import Node from '@/components/Node.vue'
 })
 export default class Visualizer extends Vue {
   private grid: Array<Array<NodeObject>> = []
-  private startNodeRow = 8
+  private startNodeRow = 9
   private startNodeCol = 10
-  private endNodeRow = 8
-  private endNodeCol = 30
+  private endNodeRow = 9
+  private endNodeCol = 40
   private numRows = 20
   private numColumns = 50
 

@@ -8,6 +8,8 @@
           :row="node.row"
           :col="node.col"
           :isStart="node.isStart"
+          :isEnd="node.isEnd"
+          :isVisited="node.isVisited"
         />
       </tr>
     </tbody>
