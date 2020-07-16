@@ -1,5 +1,8 @@
 <template>
   <div>
+    <div id="example-1">
+      <button v-on:click="visualizeDijkstra()">Dijkstra</button>
+    </div>
     <div class="board">
       <grid :row="15" :column="50" :grid="this.grid" />
     </div>
@@ -11,6 +14,7 @@ import { Component, Vue } from 'nuxt-property-decorator'
 import { NodeObject } from '@/types/NodeObject'
 import Grid from '@/components/Grid.vue'
 import Node from '@/components/Node.vue'
+import { dijkstra } from '@/algorithms/dijkstra.ts'
 
 @Component({
   components: {
@@ -53,6 +57,17 @@ export default class Visualizer extends Vue {
       isVisited: false,
       isWall: false,
     }
+  }
+
+  public visualizeDijkstra(): void {
+    const grid = this.grid
+    const startNode = grid[this.startNodeRow][this.startNodeCol]
+    const endNode = grid[this.endNodeRow][this.endNodeCol]
+    const { visitedNodesInOrder, nodesInShortestPath } = dijkstra(
+      grid,
+      startNode,
+      endNode
+    )
   }
 }
 </script>
