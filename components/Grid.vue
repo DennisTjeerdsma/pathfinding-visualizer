@@ -1,8 +1,14 @@
 <template>
   <div class="main">
-    <tbody>
-      <tr v-for="i in row" :id="'row' + '-' + 'i'" v-bind:key="i">
-        <td v-for="j in column" v-bind:key="j" class="cell border border-gray-600"></td>
+    <tbody class="board">
+      <tr v-for="(row, rowIndex) in grid" :key="rowIndex">
+        <Node
+          v-for="(node, nodeIndex) in row"
+          :key="nodeIndex"
+          :row="node.row"
+          :col="node.col"
+          :isStart="node.isStart"
+        />
       </tr>
     </tbody>
   </div>
@@ -10,17 +16,20 @@
 
 <script lang="ts">
 import { Vue, Component, Prop } from 'vue-property-decorator'
+import { NodeObject } from '@/types/NodeObject'
+import Node from '@/components/Node.vue'
 
-@Component
+@Component({
+  components: {
+    Node,
+  },
+})
 export default class Grid extends Vue {
   @Prop({ required: true }) row!: number
   @Prop({ required: true }) column!: number
+  @Prop({ required: true }) grid!: Array<Array<NodeObject>>
+
+  private r: number = this.row
+  private c: number = this.column
 }
 </script>
-
-<style>
-.cell {
-  width: 25px;
-  height: 25px;
-}
-</style>

@@ -1,20 +1,17 @@
 <template>
   <div name="app" class="bg-grey-300 antialiased">
     <!-- Navigation bar item at the top of the page -->
-    <navbar class="navbar h-20 bg-midnightgreen-600">
+    <navbar class="navbar h-20 bg-midnightgreen-600 w-full">
       <p>Placeholder navbar</p>
     </navbar>
-    <!-- Space for small tutorial and settings -->
-    <div class="h-52 w-full bg-red-200" />
-
-    <!-- Grid for pathfinding problem --->
-    <grid v-bind:row="15" v-bind:column="50" />
+    <!-- Visualizer --->
+    <Visualizer class="flex w-full justify-center pt-4" />
   </div>
 </template>
 
 <script lang="ts">
 import { Vue, Component } from 'nuxt-property-decorator'
-import Grid from '@/components/Grid.vue'
+import Visualizer from '@/components/Visualizer.vue'
 
 export default Vue.extend({})
 </script>
