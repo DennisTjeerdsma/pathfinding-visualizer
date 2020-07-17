@@ -2,7 +2,7 @@
   <td
     :id="`node - ${row} - ${col}`"
     class="node"
-    :class="start ? 'node-start': end ? 'node-end' : '' "
+    :class="{'node-start': isStart,  'node-end': isEnd, 'node-visited': isVisited && !isEnd && !isStart  }"
   />
 </template>
 
@@ -26,8 +26,6 @@ export default class Node extends Vue {
   private end: boolean = this.isEnd
   private visited: boolean = this.isVisited
   private wall: boolean = this.isWall
-  private row: number = this.row
-  private col: number = this.col
 }
 </script>
 

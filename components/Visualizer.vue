@@ -1,9 +1,10 @@
 <template>
-  <div>
-    <div id="example-1">
-      <button v-on:click="visualizeDijkstra()">Dijkstra</button>
+  <div class="m-4">
+    <div id="example-1" class="flex justify-center">
+      <LightButton @click.native="visualizeDijkstra()">Dijkstra's</LightButton>
+      <LightButton @click.native="clearBoard()">Clear</LightButton>
     </div>
-    <div class="board">
+    <div class="board flex justify-center mt-4">
       <grid :row="15" :column="50" :grid="this.grid" />
     </div>
   </div>
@@ -15,11 +16,13 @@ import { NodeObject } from '@/types/NodeObject'
 import Grid from '@/components/Grid.vue'
 import Node from '@/components/Node.vue'
 import { dijkstra } from '@/algorithms/dijkstra.ts'
+import LightButton from '@/components/LightButton.vue'
 
 @Component({
   components: {
     Grid,
     Node,
+    LightButton,
   },
 })
 export default class Visualizer extends Vue {
@@ -47,6 +50,10 @@ export default class Visualizer extends Vue {
     return grid
   }
 
+  public clearBoard(): void {
+    this.grid = this.generateGrid()
+  }
+
   public createNode(col: number, row: number): NodeObject {
     return {
       col,
@@ -56,6 +63,7 @@ export default class Visualizer extends Vue {
       distance: Infinity,
       isVisited: false,
       isWall: false,
+      previousNode: {} as NodeObject,
     }
   }
 
@@ -63,7 +71,7 @@ export default class Visualizer extends Vue {
     const grid = this.grid
     const startNode = grid[this.startNodeRow][this.startNodeCol]
     const endNode = grid[this.endNodeRow][this.endNodeCol]
-    const { visitedNodesInOrder, nodesInShortestPath } = dijkstra(
+    const { visitedNodesOrdered, getNodesInShortestPathOrdered } = dijkstra(
       grid,
       startNode,
       endNode

@@ -5,7 +5,7 @@
       <p>Placeholder navbar</p>
     </navbar>
     <!-- Visualizer --->
-    <Visualizer class="flex w-full justify-center pt-4" />
+    <Visualizer class="w-full" />
   </div>
 </template>
 

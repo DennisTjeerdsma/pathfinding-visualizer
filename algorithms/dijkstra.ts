@@ -36,7 +36,7 @@ export const dijkstra = (
          updateUnvisitedNeighbors(currentNode!, grid);        
     }
     return {
-        visitedNodesOrdered: visitedNodesInOrder,
+        visitedNodesOrdered: visitedNodesOrdered,
         getNodesInShortestPathOrdered: getNodesInShortestPathOrdered(endNode),
 
     }
