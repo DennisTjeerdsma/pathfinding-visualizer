@@ -2,7 +2,7 @@
   <td
     :id="`node - ${row} - ${col}`"
     class="node"
-    :class="{'node-start': isStart,  'node-end': isEnd, 'node-visited': isVisited && !isEnd && !isStart  }"
+    :class="isStart ? 'node-start': isEnd ?'node-end' : isVisited ? '' : 'node'"
   />
 </template>
 
@@ -45,9 +45,27 @@ export default class Node extends Vue {
   }
   &.node-visited {
     background-color: blueviolet;
+    animation-name: fade;
+    animation-duration: 1s;
   }
+
   &.node-wall {
     background-color: black;
+  }
+}
+
+@keyframes fade {
+  0% {
+    transform: scale(0.3);
+    background-color: aqua;
+    border-radius: 100%;
+  }
+  50% {
+    background-color: blue;
+  }
+  100% {
+    transform: scale(1);
+    background-color: blueviolet;
   }
 }
 </style>

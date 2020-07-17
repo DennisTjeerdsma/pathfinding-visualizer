@@ -10,6 +10,7 @@ export const dijkstra = (
 ) => {
     /* Defining a array of nodeobjects of visited and unvisited nodes.*/
     const visitedNodesOrdered: Array<NodeObject | undefined> = [];
+    let i = 1
     startNode.distance = 0;
     const unvisitedNodes = getAllNodes(grid);
     while (unvisitedNodes.length != 0){
@@ -33,7 +34,7 @@ export const dijkstra = (
                 getNodesInShortestPathOrdered: getNodesInShortestPathOrdered(endNode),
              }
          }
-         updateUnvisitedNeighbors(currentNode!, grid);        
+         updateUnvisitedNeighbors(currentNode!, grid);
     }
     return {
         visitedNodesOrdered: visitedNodesOrdered,
