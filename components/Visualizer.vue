@@ -17,12 +17,14 @@ import Grid from '@/components/Grid.vue'
 import Node from '@/components/Node.vue'
 import { dijkstra } from '@/algorithms/dijkstra.ts'
 import LightButton from '@/components/LightButton.vue'
+import DropDown from '@/components/DropDown.vue'
 
 @Component({
   components: {
     Grid,
     Node,
     LightButton,
+    DropDown,
   },
 })
 export default class Visualizer extends Vue {
