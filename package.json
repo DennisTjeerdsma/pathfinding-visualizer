@@ -15,7 +15,7 @@
     "@fortawesome/free-solid-svg-icons": "^5.13.1",
     "@nuxt/typescript-runtime": "^0.4.10",
     "@nuxtjs/pwa": "^3.0.0-beta.20",
-    "nuxt": "^2.13.0",
+    "nuxt": "^3.4.3",
     "nuxt-fontawesome": "^0.4.0",
     "nuxt-property-decorator": "^2.7.2",
     "vue-property-decorator": "^9.0.0"
